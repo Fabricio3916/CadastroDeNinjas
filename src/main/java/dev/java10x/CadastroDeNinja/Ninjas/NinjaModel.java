@@ -4,8 +4,6 @@ import dev.java10x.CadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 //Entity transforma uma classe em uma entidade do Banco de Dados
 //JPA = Java Persistence API
 @Entity
@@ -17,12 +15,17 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
     @Column(unique = true)
     private String email;
+
+    @Column(name = "img_url")
+    private String imgUrl;
 
     private int idade;
 
