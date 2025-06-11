@@ -26,8 +26,4 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes") // One Missao para Many Ninjas
     private List<NinjaModel> ninjas;
 
-    public MissoesModel() {
-    }
-
-
 }
