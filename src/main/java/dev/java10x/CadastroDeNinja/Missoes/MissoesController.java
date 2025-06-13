@@ -17,6 +17,12 @@ public class MissoesController {
         this.missoesService = missoesService;
     }
 
+    //Post -- Mandar uma requisição para criar uma missao
+    @PostMapping("/criar")
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
+        return missoesService.criarMissao(missao);
+    }
+
     //Get -- Mandar requisição para mostrar as missoes
     @GetMapping("/listar")
     public List<MissoesModel> listarMissoes(){
@@ -28,22 +34,19 @@ public class MissoesController {
         return missoesService.listarMissaoPorId(id);
     }
 
-    //Post -- Mandar uma requisição para criar uma missao
-
-    @PostMapping("/criar")
-    public String criarMissao(){
-        return "Criado missão";
+    @PutMapping("/alterar/{id}")
+    public MissoesModel alterarMissao(@PathVariable Long id, @RequestBody MissoesModel missao){
+        return missoesService.alterarMissao(id, missao);
     }
 
-    @PutMapping("/alterar")
-    public String alterarMissao(){
-        return "Alterado a missao";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable  Long id){
+        missoesService.deletarMissao(id);
     }
 
-    @DeleteMapping("/deletar")
-    public String deletarMissao(){
-        return "Missao deletada";
-    }
+
+
+
 
 
 

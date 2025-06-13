@@ -15,6 +15,11 @@ public class MissoesService {
         this.missoesRepository = missoesRepository;
     }
 
+
+    public MissoesModel criarMissao(MissoesModel missao){
+        return missoesRepository.save(missao);
+    }
+
     public List<MissoesModel> listarMissoes(){
         return missoesRepository.findAll();
     }
@@ -23,5 +28,19 @@ public class MissoesService {
         Optional<MissoesModel> missaoPorId = missoesRepository.findById(id);
         return  missaoPorId.orElse(null);
     }
+
+    public MissoesModel alterarMissao(Long id, MissoesModel missaoAtualizada){
+        if(missoesRepository.existsById(id)){
+            missaoAtualizada.setId(id);
+            return missoesRepository.save(missaoAtualizada);
+        }
+        return null;
+    }
+
+    public void deletarMissao(Long id){
+        missoesRepository.deleteById(id);
+    }
+
+
 
 }
