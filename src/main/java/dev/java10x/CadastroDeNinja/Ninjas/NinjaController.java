@@ -32,19 +32,21 @@ public class NinjaController {
     }
     //Mostrar todos os ninjas por Id (READ)
     @GetMapping("/listar/{id}")
-    public NinjaModel listarNinjasPorId(@PathVariable Long id ){
+    public NinjaModel listarNinjasPorId(@PathVariable Long id){
         return ninjaService.listarNinjasPorId(id);
     }
     //Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarID")
-    public String alterarNinjaPorId(){
-        return "Alterado ninja por id";
+    @PutMapping("/alterar/{id}") // o metodo PUT altera todos os campos, nao apenas os que vc pede para alterar
+    public NinjaModel alterarNinjaPorId(@PathVariable Long id,  @RequestBody NinjaModel ninjaAtualizado ){
+        return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
     //Deletar um ninja (DELETE)
     @DeleteMapping("/deletarID/{id}")
     public void deletarNinjaPorId(@PathVariable Long id){
         ninjaService.deletarNinja(id);
     }
+
+
 
 
 }
