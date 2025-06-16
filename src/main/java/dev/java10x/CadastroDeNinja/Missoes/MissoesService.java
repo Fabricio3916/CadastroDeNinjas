@@ -15,7 +15,6 @@ public class MissoesService {
         this.missoesRepository = missoesRepository;
     }
 
-
     public MissoesModel criarMissao(MissoesModel missao){
         return missoesRepository.save(missao);
     }
