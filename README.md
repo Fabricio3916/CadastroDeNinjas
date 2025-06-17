@@ -1,5 +1,3 @@
-# CadastroDeNinjas
-
 # Visão Geral do Projeto
 Este sistema foi desenvolvido para gerenciar ninjas e suas missões. Cada ninja pode ser atribuído a uma única missão, enquanto uma missão pode ser associada a vários ninjas. As principais funcionalidades incluem:
 
