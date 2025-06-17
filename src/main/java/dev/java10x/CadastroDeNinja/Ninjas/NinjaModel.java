@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinja.Ninjas;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.CadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -35,6 +36,7 @@ public class NinjaModel {
 
     @ManyToOne // Many missoes para One Ninja
     @JoinColumn(name = "missoes_id") //Chave estrangeira
+    @JsonIgnore // impede mostrar as missoes de forma repetida ao exibir as missoes
     private MissoesModel missoes;
 
 
