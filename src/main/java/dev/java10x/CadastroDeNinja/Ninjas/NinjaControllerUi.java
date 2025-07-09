@@ -26,13 +26,13 @@ public class NinjaControllerUi {
     }
 
     @GetMapping ("/deletar/{id}")
-    public String deletarNinjaPorId(@PathVariable Long id){
+    public String deletarNinjaPorId(@PathVariable("id") Long id){
         ninjaService.deletarNinja(id);
         return "redirect:/ninjas/ui/listar";
     }
 
     @GetMapping("/listar/{id}")
-    public String listarNinjasPorId(@PathVariable Long id, Model model) {
+    public String listarNinjasPorId(@PathVariable("id") Long id, Model model) {
         NinjaDTO ninja =  ninjaService.listarNinjasPorId(id);
         if (ninja !=null) {
             model.addAttribute("ninja", ninja);
